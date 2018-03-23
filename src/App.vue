@@ -1,7 +1,7 @@
-<template>
-  <div id="app">
-    <h1>{{ msg }}</h1>
-  </div>
+<template lang="pug">
+  div(id="app", appId=100000)
+    h1 {{ msg }}
+    img(src="./assets/img/vader.jpg")
 </template>
 
 <script>
