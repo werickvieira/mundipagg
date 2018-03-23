@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "no-use-before-define": [1, { "variables": true }],
+    "no-continue": [1],
+    "no-param-reassign": [2, {"props": false}],
+    "no-new": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "globals": {
+  }
+}
