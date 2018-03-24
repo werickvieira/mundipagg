@@ -35,6 +35,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
   }
 }

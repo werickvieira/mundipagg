@@ -54,7 +54,9 @@ const config = {
       },
     ],
   },
-
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+  },
   plugins: [
     new ExtractTextPlugin('style.css?[hash]'),
     new HtmlWebpackPlugin({
