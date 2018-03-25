@@ -3,7 +3,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:vue/recommended"],
   "rules": {
     "no-use-before-define": [1, { "variables": true }],
     "no-continue": [1],

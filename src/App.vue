@@ -3,20 +3,21 @@
     header
       app-header
     main
-      app-container 
+      app-container
 </template>
 
 <script>
-  import AppHeader from './components/AppHeader.vue';
-  import AppContainer from './components/AppContainer.vue';
-  
-  export default {
-    name: 'app',
-    components: { 
-      'app-container': AppContainer,
-      'app-header': AppHeader 
-    },
-  }
+import AppHeader from './components/AppHeader.vue';
+import AppContainer from './components/AppContainer.vue';
+
+export default {
+  name: 'App',
+  components: {
+    'app-container': AppContainer,
+    'app-header': AppHeader,
+  },
+};
+
 </script>
 
 <style lang="scss">

@@ -1,31 +1,31 @@
 <template lang="pug">
   div(id="app-header")
-    h1(v-bind:class="{ active: isActive }") Venda Nova  
+    h1(v-bind:class="{ active: isActive }") Venda Nova
 </template>
 
 <script>
-  export default {
-    name: 'app-header',
-    data () {
-      return {
-        isActive: false
-      }
-    },    
-    created() {
-      const { name } = this.$route;
+export default {
+  name: 'AppHeader',
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  watch: {
+    $route({ name }) {
       this.changeHeader(name);
     },
-    methods:{
-      changeHeader(name) {
-        this.isActive = name === 'app-cart';
-      }
+  },
+  created() {
+    const { name } = this.$route;
+    this.changeHeader(name);
+  },
+  methods: {
+    changeHeader(name) {
+      this.isActive = name === 'app-cart';
     },
-    watch: {
-      $route({ name }){
-        this.changeHeader(name);
-      }
-    },
-  }
+  },
+};
 </script>
 
 <style lang="scss">

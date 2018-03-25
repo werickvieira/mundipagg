@@ -9,26 +9,34 @@
 </template>
 
 <script>
-  import AppHomeItem from '../home/AppHomeItem';
-  export default {
-    name: 'app-home',
-    components: { 
-      'app-home-item': AppHomeItem,
-    },
-    props: ["books"],
-    data () {
-      return {
-        
-      }
-    },
+import AppHomeItem from '../home/AppHomeItem.vue';
 
-    created() {
-      console.log('CREATED NA HOME')
-      console.log(this)
+export default {
+  name: 'AppHome',
+  components: {
+    'app-home-item': AppHomeItem,
+  },
+  // props: ["books"],
+  props: {
+    books: {
+      type: Array,
+      default() {
+        return [];
+      },
     },
+  },
+  data() {
+    return {
+    };
+  },
 
-    methods: {}
-  }
+  created() {
+    console.log('CREATED NA HOME');
+    console.log(this);
+  },
+
+  methods: {},
+};
 </script>
 
 <style lang="scss">

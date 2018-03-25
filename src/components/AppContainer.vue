@@ -4,31 +4,31 @@
 </template>
 
 <script>
-  import get from '../js/request';
-  export default {
-    name: 'app-container',
-    data () {
-      return {
-        books: []
-      }
-    },
+import get from '../js/request';
 
-    created() {
-      this.fetchData();
+export default {
+  name: 'AppContainer',
+  data() {
+    return {
+      books: [],
+    };
+  },
+  watch: {
+    $route(to, from) {
+      console.log('to', to);
+      console.log('from', from);
     },
+  },
+  created() {
+    this.fetchData();
+  },
 
-    methods: {
-      fetchData () {
-        get('./livros.json').then(e => this.books = e);
-      }
+  methods: {
+    fetchData() {
+      get('./livros.json').then((e) => { this.books = e; });
     },
-    watch:{
-      $route(to, from) {
-        // console.log('to', to);
-        // console.log('from', from);
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style lang="scss">
@@ -45,7 +45,6 @@
       padding-right: 10px;
       padding-left: 10px;
     }
-    
   }
 </style>
 

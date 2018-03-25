@@ -11,26 +11,35 @@
 </template>
 
 <script>
-  export default {
-    name: 'app-home-item',
-    props: ["item"],
-    // data () {
-    //   return {
-    //   }
-    // },
-    methods: {
-      addBookCart({ id, price }) {
-        console.log('id', id)
-        console.log('price', price);
+export default {
+  name: 'AppHomeItem',
+  // props: ["item"],
+  props: {
+    item: {
+      type: Object,
+      default() {
+        return {};
       },
+    },
+  },
+  // data () {
+  //   return {
+  //   }
+  // },
+  methods: {
+    addBookCart({ id, price }) {
+      console.log('id', id);
+      console.log('price', price);
+    },
 
-      formatPrice(prince){
-       return prince.toLocaleString('pt-BR', 
-          { style: 'currency', currency: 'BRL' }
-        )
-      }
-    }
-  }
+    formatPrice(prince) {
+      return prince.toLocaleString(
+        'pt-BR',
+        { style: 'currency', currency: 'BRL' },
+      );
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -48,6 +57,10 @@
         margin-left: 20px;
       }
       flex-basis: 30%;
+    }
+    @media(min-width: 480px) and (max-width: 767px){
+      margin-right: 10px;
+      margin-left: 10px;
     }
     .app-home__item-title{
       margin-top: 20px;
@@ -71,11 +84,11 @@
       padding-bottom: 15px;
       justify-content: center;
       .app-home__item-group__thumb{
-        border: 2px solid red;
+        //border: 2px solid red;
         padding: 10px;
       }
       .app-home__item-group__info{
-        border: 2px solid forestgreen;
+        //border: 2px solid forestgreen;
         color: #2c3e50;
         .item-group__info__description{
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -87,9 +100,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 15px;
             color:#2c3e50;
+            font-weight: bold;
         }
       }
     }
-    
   }
 </style>
