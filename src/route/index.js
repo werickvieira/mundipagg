@@ -6,6 +6,7 @@ import AppHome from '../components/home/AppHome.vue';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -16,6 +17,10 @@ export default new Router({
       path: '/cart',
       name: 'app-cart',
       component: AppCart,
+    },
+    {
+      path: '*',
+      redirect: '/',
     },
   ],
 });

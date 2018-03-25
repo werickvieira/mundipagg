@@ -1,14 +1,14 @@
 <template lang="pug">
   div(id="app-cart")
-    h1 {{ msg }}
 </template>
 
 <script>
   export default {
     name: 'app-cart',
+    props: ["books"],
     data () {
       return {
-        msg: 'Cart Message!!'
+        
       }
     }
   }

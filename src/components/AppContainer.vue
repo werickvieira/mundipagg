@@ -1,28 +1,51 @@
 <template lang="pug">
   div(id="app-container")
-    h1 {{ msg }}
-    img(src='../assets/img/vader.jpg')
+    router-view(:books="books")
 </template>
 
 <script>
+  import get from '../js/request';
   export default {
     name: 'app-container',
     data () {
       return {
-        msg: 'Teste mensagem!!!'
+        books: []
+      }
+    },
+
+    created() {
+      this.fetchData();
+    },
+
+    methods: {
+      fetchData () {
+        get('./livros.json').then(e => this.books = e);
+      }
+    },
+    watch:{
+      $route(to, from) {
+        // console.log('to', to);
+        // console.log('from', from);
       }
     }
   }
 </script>
 
 <style lang="scss">
-  #app-container {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #fff;
+  #app-container{
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 60px;
+    margin-bottom: 60px;
+    max-width: 1280px;
+    padding-top: 20px;
+    border-top: 1px solid gray;
+    text-align: center;
+    @media(max-width:767px){
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    
   }
 </style>
 
