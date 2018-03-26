@@ -1,33 +1,30 @@
 import get from '../js/request';
 
-const state = {
+const states = {
   bookList: [],
 };
 
 const getters = {
   getBooksList({ bookList }) {
-    return bookList
-  }
+    return bookList;
+  },
 };
 
 const mutations = {
   setBooksList(state, list) {
-    state.bookList =  list;
-  }
+    state.bookList = list;
+  },
 };
 
-const  actions = {
+const actions = {
   FETCH_LIST({ commit }) {
-    get('./livros.json').then((e) => commit('setBooksList', e));
-  }
+    get('./livros.json').then(e => commit('setBooksList', e));
+  },
 };
 
 export {
-  state,
+  states,
   getters,
   actions,
   mutations,
 };
-
-
-

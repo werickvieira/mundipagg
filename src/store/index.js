@@ -1,16 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import {
-  state,
+  states,
   getters,
   mutations,
   actions,
 } from './books';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state,
+  states,
   getters,
   mutations,
   actions,
