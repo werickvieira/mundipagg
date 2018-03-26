@@ -1,7 +1,8 @@
 import get from '../js/request';
 
-const state = {
+const states = {
   bookList: [],
+  bookCart: [],
 };
 
 const getters = {
@@ -11,19 +12,40 @@ const getters = {
 };
 
 const mutations = {
-  setBooksList(state, list) {
+  SET_BOOKS_LIST(state, list) {
     state.bookList = list;
+  },
+  ADD_BOOK_CART(state, { id }) {
+    const item = state.bookCart.filter(e => e.id === id);
+    if (item.length === 0) {
+      state.bookCart.push({
+        counter: 1,
+        id,
+      });
+    } else {
+      item[0].counter += 1;
+    }
+  },
+  DELETE_BOOK_CART(state, { id }) {
+    state.bookCart.splice(id);
   },
 };
 
 const actions = {
-  FETCH_LIST({ commit }) {
-    get('./livros.json').then(e => commit('setBooksList', e));
+  async fetchList({ commit }) {
+    const response = await get('./livros.json').then(e => e);
+    commit('SET_BOOKS_LIST', response);
+  },
+  addBookCart({ commit }, bookItem) {
+    commit('ADD_BOOK_CART', bookItem);
+  },
+  deleteBookCart({ commit }, bookId) {
+    commit('DELETE_BOOK_CART', bookId);
   },
 };
 
 export {
-  state,
+  states as state,
   getters,
   actions,
   mutations,

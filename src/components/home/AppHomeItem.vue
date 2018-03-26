@@ -26,11 +26,8 @@ export default {
     };
   },
   methods: {
-    addBookCart({ id = null, price = 0 }) {
-      console.log('id', id);
-      console.log('price', price);
-      // this.$store.dispatch('SET_BOOKS_LIST');
-      // console.log(this.$store.getters.getAllBooks);
+    addBookCart(item) {
+      this.$store.dispatch('addBookCart', item);
     },
     formatPrice(prince) {
       return prince.toLocaleString(

@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
-  entry: './src/main.js',
+  entry: ['babel-polyfill', './src/main.js'],
   output: {
     filename: 'bundle.js?[hash]',
     path: path.resolve(__dirname, 'public'),

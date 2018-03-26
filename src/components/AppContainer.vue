@@ -16,7 +16,7 @@ export default {
     // },
   },
   beforeCreate() {
-    this.$store.dispatch('FETCH_LIST');
+    this.$store.dispatch('fetchList');
   },
   methods: {},
 };
