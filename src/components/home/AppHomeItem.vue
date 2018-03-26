@@ -7,13 +7,12 @@
       div.app-home__item-group__info
         p.item-group__info__description {{ item. description }}
         small.item-group__info__price {{ formatPrice(item.price) }}
-    button(v-on:click="addBookCart(item)").button.button__add-cart Adicionar ao carrinho
+    button(@click="addBookCart(item)").button.button__add-cart Adicionar ao carrinho
 </template>
 
 <script>
 export default {
   name: 'AppHomeItem',
-  // props: ["item"],
   props: {
     item: {
       type: Object,
@@ -22,16 +21,17 @@ export default {
       },
     },
   },
-  // data () {
-  //   return {
-  //   }
-  // },
+  data() {
+    return {
+    };
+  },
   methods: {
-    addBookCart({ id, price }) {
+    addBookCart({ id = null, price = 0 }) {
       console.log('id', id);
       console.log('price', price);
+      // this.$store.dispatch('SET_BOOKS_LIST');
+      // console.log(this.$store.getters.getAllBooks);
     },
-
     formatPrice(prince) {
       return prince.toLocaleString(
         'pt-BR',

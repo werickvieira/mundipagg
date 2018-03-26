@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import AppHomeItem from '../home/AppHomeItem.vue';
 
 export default {
@@ -16,25 +17,15 @@ export default {
   components: {
     'app-home-item': AppHomeItem,
   },
-  // props: ["books"],
-  props: {
-    books: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-  },
   data() {
     return {
     };
   },
-
-  created() {
-    console.log('CREATED NA HOME');
-    console.log(this);
+  computed: {
+    ...mapGetters({
+      books: 'getBooksList',
+    }),
   },
-
   methods: {},
 };
 </script>

@@ -1,33 +1,24 @@
 <template lang="pug">
   div(id="app-container")
-    router-view(:books="books")
+    router-view
 </template>
 
 <script>
-import get from '../js/request';
-
 export default {
   name: 'AppContainer',
   data() {
-    return {
-      books: [],
-    };
+    return {};
   },
   watch: {
-    $route(to, from) {
-      console.log('to', to);
-      console.log('from', from);
-    },
+    // $route(to, from) {
+    //   console.log('to', to);
+    //   console.log('from', from);
+    // },
   },
-  created() {
-    this.fetchData();
+  beforeCreate() {
+    this.$store.dispatch('FETCH_LIST');
   },
-
-  methods: {
-    fetchData() {
-      get('./livros.json').then((e) => { this.books = e; });
-    },
-  },
+  methods: {},
 };
 </script>
 

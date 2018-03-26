@@ -1,6 +1,6 @@
 <template lang="pug">
   div(id="app-header")
-    h1(v-bind:class="{ active: isActive }") Venda Nova
+    h1(v-bind:class="{ active: isActive }") Livraria Flip
 </template>
 
 <script>
