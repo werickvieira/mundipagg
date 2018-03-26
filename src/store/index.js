@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import {
-  states,
+  state,
   getters,
   mutations,
   actions,
@@ -10,7 +10,7 @@ import {
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  states,
+  state,
   getters,
   mutations,
   actions,

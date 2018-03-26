@@ -1,6 +1,6 @@
 import get from '../js/request';
 
-const states = {
+const state = {
   bookList: [],
 };
 
@@ -23,7 +23,7 @@ const actions = {
 };
 
 export {
-  states,
+  state,
   getters,
   actions,
   mutations,
