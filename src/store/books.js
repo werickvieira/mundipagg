@@ -9,25 +9,39 @@ const getters = {
   getBooksList({ bookList }) {
     return bookList;
   },
+  getBooksCart({ bookCart }) {
+    // console.log('book', bookCart);
+    return bookCart;
+    // const total = bookCart.reduce((prev, { counter, price }) => {
+    //   let sum = prev;
+    //   sum += counter * price;
+    //   return sum;
+    // }, 0);
+  },
 };
 
 const mutations = {
   SET_BOOKS_LIST(state, list) {
     state.bookList = list;
   },
-  ADD_BOOK_CART(state, { id }) {
+  ADD_BOOKS_CART(state, book) {
+    const { id, description, price } = book;
     const item = state.bookCart.filter(e => e.id === id);
     if (item.length === 0) {
       state.bookCart.push({
         counter: 1,
         id,
+        description,
+        price,
       });
     } else {
       item[0].counter += 1;
     }
   },
-  DELETE_BOOK_CART(state, { id }) {
-    state.bookCart.splice(id);
+  DELETE_BOOKS_CART({ bookCart }, id) {
+    const item = bookCart.filter(e => e.id === id);
+    const index = bookCart.indexOf(item[0]);
+    bookCart.splice(index, 1);
   },
 };
 
@@ -37,10 +51,10 @@ const actions = {
     commit('SET_BOOKS_LIST', response);
   },
   addBookCart({ commit }, bookItem) {
-    commit('ADD_BOOK_CART', bookItem);
+    commit('ADD_BOOKS_CART', bookItem);
   },
   deleteBookCart({ commit }, bookId) {
-    commit('DELETE_BOOK_CART', bookId);
+    commit('DELETE_BOOKS_CART', bookId);
   },
 };
 

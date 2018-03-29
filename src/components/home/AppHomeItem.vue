@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import mixin from '../../js/mixin';
+
 export default {
   name: 'AppHomeItem',
+  mixins: [mixin],
   props: {
     item: {
       type: Object,
@@ -28,12 +31,6 @@ export default {
   methods: {
     addBookCart(item) {
       this.$store.dispatch('addBookCart', item);
-    },
-    formatPrice(prince) {
-      return prince.toLocaleString(
-        'pt-BR',
-        { style: 'currency', currency: 'BRL' },
-      );
     },
   },
 };

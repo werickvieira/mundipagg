@@ -1,17 +1,37 @@
 <template lang="pug">
   div(id="app-cart")
+    h2 Carrinho
+    app-cart-table(
+      v-bind:columns="columns"
+      v-bind:books="booksCart"
+    )
 </template>
 
 <script>
-  export default {
-    name: 'app-cart',
-    props: ["books"],
-    data () {
-      return {
-        
-      }
-    }
-  }
+import { mapGetters } from 'vuex';
+import AppCartTable from './AppCartTable.vue';
+
+export default {
+  name: 'AppCart',
+  components: {
+    'app-cart-table': AppCartTable,
+  },
+  data() {
+    return {
+      columns: [
+        'Descrição',
+        'Quantidade',
+        'Subtotal',
+        '',
+      ],
+    };
+  },
+  computed: {
+    ...mapGetters({
+      booksCart: 'getBooksCart',
+    }),
+  },
+};
 </script>
 
 <style lang="scss">
@@ -20,7 +40,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color:red;
     margin-top: 60px;
   }
 </style>

@@ -1,7 +1,7 @@
 <template lang="pug">
   section(id="app-home")
     app-home-item(
-      v-for="item in books",
+      v-for="item in books"
       v-bind:item="item"
       v-bind:idbook="item.id"
       v-bind:key="item.id"

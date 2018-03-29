@@ -1,6 +1,14 @@
 <template lang="pug">
   div(id="app-header")
-    h1(v-bind:class="{ active: isActive }") Livraria Flip
+    h1 Livraria Flip
+    nav
+      ul.nav
+        li.nav__item(v-bind:class="{ active: isActive }")
+          router-link(to="/")
+        li.nav__item(v-bind:class="{ active: !isActive }")
+          router-link(to="/cart")
+    //- nav
+  //- /.app-header
 </template>
 
 <script>
@@ -38,8 +46,28 @@ export default {
     margin-top: 60px;
     h1{
       display: block;
-      &.active {
-        display: none;
+    }
+    nav{
+      display: block;
+      .nav{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        .nav__item{
+          opacity: 0;
+          max-height: 0;
+          overflow: hidden;
+          a{
+            border: 2px solid red;
+            display: block;
+            width: 40px;
+            height: 40px;
+          }
+          &.active{
+            opacity: 1;
+            max-height: 100%;
+          }
+        }
       }
     }
   }

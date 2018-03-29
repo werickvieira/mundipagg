@@ -34,6 +34,18 @@ export default {
     background-color: #fff;
     border: 2px solid red;
   }
+  ol, ul{
+    list-style: none;
+  }
+  table{
+    border-spacing: 0;
+  }
+  img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border:0;
+  }
   .button{
     width: 100%;
     min-height: 40px;
