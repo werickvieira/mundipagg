@@ -54,19 +54,16 @@ export default {
     },
   },
   watch: {
-    // updateList() {
-    //   console.log("exec")
-    //   this.checkEmptyList();
-    // },
+    accumulate() {
+      this.checkEmptyList();
+    },
   },
   created() {
     this.checkEmptyList();
   },
   methods: {
     checkEmptyList() {
-      if (this.books.length !== 0) {
-        this.isEmpty = false;
-      }
+      this.isEmpty = (this.books.length === 0);
     },
     deleteItemCart(id) {
       this.$store.dispatch('deleteBookCart', id);
