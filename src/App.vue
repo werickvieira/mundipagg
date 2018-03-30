@@ -32,7 +32,6 @@ export default {
   }
   body{
     background-color: #fff;
-    border: 2px solid red;
   }
   ol, ul{
     list-style: none;

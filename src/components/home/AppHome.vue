@@ -1,5 +1,5 @@
 <template lang="pug">
-  section(id="app-home")
+  section(id="app__home")
     app-home-item(
       v-for="item in books"
       v-bind:item="item"
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
-  #app-home{
+  #app__home{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;

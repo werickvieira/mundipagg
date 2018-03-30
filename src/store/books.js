@@ -47,7 +47,7 @@ const mutations = {
 
 const actions = {
   async fetchList({ commit }) {
-    const response = await get('./livros.json').then(e => e);
+    const response = await get('./livros.json');
     commit('SET_BOOKS_LIST', response);
   },
   addBookCart({ commit }, bookItem) {

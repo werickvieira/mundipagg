@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(id="app-container")
+  div(id="app__container")
     router-view
 </template>
 
@@ -9,12 +9,6 @@ export default {
   data() {
     return {};
   },
-  watch: {
-    // $route(to, from) {
-    //   console.log('to', to);
-    //   console.log('from', from);
-    // },
-  },
   beforeCreate() {
     this.$store.dispatch('fetchList');
   },
@@ -23,11 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
-  #app-container{
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 60px;
-    margin-bottom: 60px;
+  #app__container{
+    margin: 60px auto;
     max-width: 1280px;
     padding-top: 20px;
     border-top: 1px solid gray;

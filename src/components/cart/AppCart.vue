@@ -1,9 +1,9 @@
 <template lang="pug">
-  div(id="app-cart")
+  div(id="app__cart")
     h2 Carrinho
     app-cart-table(
       v-bind:columns="columns"
-      v-bind:books="booksCart"
+      v-bind:books="books"
     )
 </template>
 
@@ -28,14 +28,14 @@ export default {
   },
   computed: {
     ...mapGetters({
-      booksCart: 'getBooksCart',
+      books: 'getBooksCart',
     }),
   },
 };
 </script>
 
 <style lang="scss">
-  #app-cart {
+  #app__cart {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

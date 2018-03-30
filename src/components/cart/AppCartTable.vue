@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(class="app-cart__table")
+  div(class="app__cart__table")
     table.app-cart__table-container(v-bind:hidden="isEmpty")
       thead
         tr
@@ -10,7 +10,7 @@
           td {{ item.counter }}
           td {{ formatPrice(item.counter * item.price) }}
           td #[button(@click="deleteItemCart(item.id)") X]
-        tr.line-special
+        tr
           td Total
           td
           td {{ formatPrice(accumulate) }}
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .app-cart__table{
+  .app__cart__table{
     display: flex;
     margin-top: 45px;
     @media(min-width:768px){
