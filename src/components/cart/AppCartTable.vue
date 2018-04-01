@@ -1,6 +1,6 @@
 <template lang="pug">
   div(class="app__cart__table")
-    table.app-cart__table-container(v-bind:hidden="isEmpty")
+    table(v-bind:hidden="isEmpty")
       thead
         tr
           th(scope="col", v-for="item in columns") {{ item }}
