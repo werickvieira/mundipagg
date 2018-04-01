@@ -9,11 +9,26 @@ export default {
   data() {
     return {};
   },
+  watch: {
+    $route() {
+      this.getItensSession();
+    },
+  },
   beforeCreate() {
     this.$store.dispatch('fetchList');
   },
-  methods: {},
-
+  created() {
+    this.getItensSession();
+  },
+  methods: {
+    getItensSession() {
+      const itens = sessionStorage.getItem('books');
+      const parse = JSON.parse(itens);
+      if (parse && parse.length > 0) {
+        this.$store.dispatch('setListBooksCart', parse);
+      }
+    },
+  },
 };
 </script>
 

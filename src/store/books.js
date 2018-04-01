@@ -18,6 +18,9 @@ const mutations = {
   SET_BOOKS_LIST(state, list) {
     state.bookList = list;
   },
+  SET_LIST_BOOKS_CART(state, list) {
+    state.bookCart = list;
+  },
   ADD_BOOKS_CART(state, book) {
     const { id, description, price } = book;
     const item = state.bookCart.filter(e => e.id === id);
@@ -53,6 +56,9 @@ const actions = {
   },
   deleteBookCart({ commit }, bookId) {
     commit('DELETE_BOOKS_CART', bookId);
+  },
+  setListBooksCart({ commit }, list) {
+    commit('SET_LIST_BOOKS_CART', list);
   },
 };
 

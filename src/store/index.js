@@ -7,6 +7,8 @@ import {
   actions,
 } from './books';
 
+import subscribe from './subscribe';
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -14,6 +16,7 @@ const store = new Vuex.Store({
   getters,
   mutations,
   actions,
+  plugins: [subscribe],
 });
 
 export default store;
