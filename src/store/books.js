@@ -18,7 +18,7 @@ const mutations = {
   SET_BOOKS_LIST(state, list) {
     state.bookList = list;
   },
-  SET_LIST_BOOKS_CART(state, list) {
+  SET_BOOKS_CART(state, list) {
     state.bookCart = list;
   },
   ADD_BOOKS_CART(state, book) {
@@ -57,8 +57,8 @@ const actions = {
   deleteBookCart({ commit }, bookId) {
     commit('DELETE_BOOKS_CART', bookId);
   },
-  setListBooksCart({ commit }, list) {
-    commit('SET_LIST_BOOKS_CART', list);
+  setBooksCart({ commit }, list) {
+    commit('SET_BOOKS_CART', list);
   },
 };
 

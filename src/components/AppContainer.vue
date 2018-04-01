@@ -25,7 +25,7 @@ export default {
       const itens = sessionStorage.getItem('books');
       const parse = JSON.parse(itens);
       if (parse && parse.length > 0) {
-        this.$store.dispatch('setListBooksCart', parse);
+        this.$store.dispatch('setBooksCart', parse);
       }
     },
   },
