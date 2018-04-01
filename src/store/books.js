@@ -10,13 +10,7 @@ const getters = {
     return bookList;
   },
   getBooksCart({ bookCart }) {
-    // console.log('book', bookCart);
     return bookCart;
-    // const total = bookCart.reduce((prev, { counter, price }) => {
-    //   let sum = prev;
-    //   sum += counter * price;
-    //   return sum;
-    // }, 0);
   },
 };
 
@@ -47,8 +41,12 @@ const mutations = {
 
 const actions = {
   async fetchList({ commit }) {
-    const response = await get('./livros.json');
-    commit('SET_BOOKS_LIST', response);
+    try {
+      const response = await get('./livros.json');
+      commit('SET_BOOKS_LIST', response);
+    } catch (e) {
+      // console.log('Erro', e);
+    }
   },
   addBookCart({ commit }, bookItem) {
     commit('ADD_BOOKS_CART', bookItem);

@@ -13,6 +13,7 @@ export default {
     this.$store.dispatch('fetchList');
   },
   methods: {},
+
 };
 </script>
 

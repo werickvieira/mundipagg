@@ -3,16 +3,17 @@
     table.app-cart__table-container(v-bind:hidden="isEmpty")
       thead
         tr
-          th(v-for="item in columns") {{ item }}
+          th(scope="col", v-for="item in columns") {{ item }}
       tbody
         tr(v-for="item in books")
           td {{ item.description }}
           td {{ item.counter }}
           td {{ formatPrice(item.counter * item.price) }}
-          td #[button(@click="deleteItemCart(item.id)") X]
-        tr
-          td Total
           td
+            button.button.button__remove__cart(@click="deleteItemCart(item.id)")
+              i(class="fa fa-times-circle fa-2x")
+        tr
+          td(colspan='2') Total
           td {{ formatPrice(accumulate) }}
           td
     div.app-cart__isEmpty(v-bind:hidden="!isEmpty")
@@ -86,15 +87,26 @@ export default {
     }
     @media(max-width:767px){
       overflow-x: auto;
+      display: block;
     }
     table {
+      width: 100%;
+      max-width: 800px;
       border: 2px solid blue;
       border-radius: 3px;
       background-color: #f9f9f9;
       border-collapse: collapse;
+      tr{
+        &:last-child{
+          td{
+            font-weight: 700;
+          }
+        }
+      }
       th, td {
-        padding: 20px;
+        padding: 12px;
         border: 1px solid #eaeaea;
+        vertical-align: middle;
       }
       th {
         background-color: blue;
@@ -105,7 +117,15 @@ export default {
           padding-left: 50px;
           padding-right: 50px;
         }
+        &:nth-of-type(2){
+          width: 120px;
+        }
       }
+    }
+    .button__remove__cart{
+      color: #000;
+      background: transparent;
+      min-height: initial;
     }
   }
 
